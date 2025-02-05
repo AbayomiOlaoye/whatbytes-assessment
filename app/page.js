@@ -116,7 +116,7 @@ const DashboardContent = () => {
         labels: ['Correct', 'Incorrect'],
         datasets: [
           {
-            label: '# of Votes',
+            label: '# of 15 Questions',
             data: [correctAnswers, incorrectAnswers],
             backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)'],
             borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
