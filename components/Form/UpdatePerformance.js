@@ -3,8 +3,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import html from '../../public/html_icon.svg'
-import Image from 'next/image';
 
 const validationSchema = Yup.object().shape({
   rank: Yup.number().required('Rank is required').positive('Rank must be a positive number'),
@@ -27,63 +25,65 @@ const UpdateScore = ({ initialValues, onSubmit, onCancel }) => {
       onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <article className=''>
-            <h2 className=''>Update Scores</h2>
-            <Image
-              src={html}
-              alt='HTML Icon'
-              className='w-10 h-10'
-            />
-          </article>
-          <div className="mb-4">
-            <label htmlFor="rank" className="block text-gray-700 text-sm font-bold mb-2">
-              <span className="">1</span> Update your Rank
+        <Form className="flex flex-col gap-4">
+          <div className="flex justify-between items-center">
+            <label htmlFor="rank" className="flex items-center gap-2 text-gray-700 text-sm font-bold mb-2">
+              <span className="bg-blue-700 p-2 px-4 rounded-full text-white">1</span> Update your Rank
             </label>
-            <Field
-              type="number"
-              id="rank"
-              name="rank"
-              placeholder="Enter Rank"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-            <ErrorMessage name="rank" component="div" className="text-red-500 text-xs italic" />
+            <article className="flex flex-col gap-1 relative">
+              <Field
+                type="number"
+                id="rank"
+                name="rank"
+                placeholder="Enter Rank"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="rank"
+                component="div"
+                className="text-red-500 top-10 absolute text-xs italic"
+              />
+            </article>
           </div>
 
-          <div className="mb-4">
+          <div className="flex justify-between items-center">
             <label htmlFor="percentile" className="block text-gray-700 text-sm font-bold mb-2">
-            <span className="">2</span> Update your Percentile
+              <span className="bg-blue-700 p-2 px-4 rounded-full text-white">2</span> Update your Percentile
             </label>
-            <Field
-              type="number"
-              id="percentile"
-              name="percentile"
-              placeholder="Enter Percentile"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-            <ErrorMessage
-              name="percentile"
-              component="div"
-              className="text-red-500 text-xs italic"
-            />
+            <article className="flex flex-col gap-1 relative">
+              <Field
+                type="number"
+                id="percentile"
+                name="percentile"
+                placeholder="Enter Percentile"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="percentile"
+                component="div"
+                className="text-red-500 top-10 absolute text-xs italic"
+              />
+            </article>
           </div>
 
-          <div className="mb-4">
+          <div className="flex justify-between items-center">
             <label htmlFor="currentScore" className="block text-gray-700 text-sm font-bold mb-2">
-            <span className="">3</span> Update your Current Score (out of 15)
+              <span className="bg-blue-700 p-2 px-4 rounded-full text-white">3</span> Update your Current Score (out of 15)
             </label>
-            <Field
-              type="number"
-              id="currentScore"
-              name="currentScore"
-              placeholder="Enter Current Score"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-            <ErrorMessage
-              name="currentScore"
-              component="div"
-              className="text-red-500 text-xs italic"
-            />
+            <article className="flex flex-col gap-1 relative">
+              <Field
+                type="number"
+                id="currentScore"
+                name="currentScore"
+                placeholder="Enter Current Score"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="currentScore"
+                component="div"
+                className="text-red-500 top-10 absolute text-xs italic"
+              />
+            </article>
           </div>
 
           <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
