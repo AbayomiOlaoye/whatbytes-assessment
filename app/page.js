@@ -79,10 +79,10 @@ const DashboardContent = () => {
   });
 
   const syllabusData = [
-    { label: 'HTML, Tools, Forms, History', value: 95 },
-    { label: 'Tags & References in HTML', value: 90 },
-    { label: 'Tables & References in HTML', value: 100 },
-    { label: 'HTML, Tools, Forms, History', value: 80 },
+    { label: 'HTML, Tools, Forms, History', value: 95, bg: 'bg-blue-500', overlay: 'bg-blue-100' },
+    { label: 'Tags & References in HTML', value: 90, bg: 'bg-green-500', overlay: 'bg-green-100' },
+    { label: 'Tables & References in HTML', value: 100, bg: 'bg-yellow-500', overlay: 'bg-yellow-100' },
+    { label: 'HTML, Tools, Forms, History', value: 80, bg: 'bg-red-500', overlay: 'bg-red-100' },
   ];
 
   const openUpdateForm = () => {
@@ -134,121 +134,127 @@ const DashboardContent = () => {
     <section className='pt-16'>
        <h1 className="text-2xl font-semibold mb-4 dark:text-gray-100">Skill Test</h1>
 
-       <article className="bg-white justify-between flex rounded-md shadow-md p-4 mb-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
-         <article className="flex items-center space-x-4 mb-2">
-           <Image src={html} alt="HTML Icon" width={10} height={10} className="w-10 h-10" />
-           <article className='flex flex-col gap-2'>
-             <h2 className="text-lg font-semibold">Hyper Text Markup Language</h2>
-             <p className="text-sm text-gray-500 dark:text-gray-400">
-               Questions: 08 | Duration: 15 mins | Submitted on 4 February, 2025
-             </p>
-           </article>
-           </article>
-           <button type="button" onClick={openUpdateForm} className="ml-auto bg-blue-500 hover:bg-blue-700 max-h-fit text-white font-bold py-2 px-4 rounded dark:bg-blue-600 dark:hover:bg-blue-700">
-             Update
-           </button>
-       </article>
-
-       <article className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-         <article className="bg-white flex md:flex-col items-center md:items-start justify-between md:justify-normal gap-2 rounded-md shadow-md p-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
-           <article className="flex items-center space-x-2">
-              <span className="rounded-full border p-1 font-bold">
-                <FaTrophy className="text-xl p-1 md:text-2xl text-yellow-500" />
-              </span>
-              <span className="text-3xl font-bold">{rank}</span>
-           </article>
-           <p className="text-gray-500 dark:text-gray-400">YOUR RANK</p>
-         </article>
-         <article className="bg-white flex md:flex-col items-center md:items-start justify-between md:justify-normal gap-2 rounded-md shadow-md p-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
-           <article className="flex items-center space-x-2">
-              <span className="rounded-full border p-1 font-bold">
-                <TbReportAnalytics className="text-xl p-1 md:text-2xl text-blue-500" />
-              </span>
-              <span className="md:text-3xl text-xl font-bold">{percentile}</span>
-           </article>
-           <p className="text-gray-500 dark:text-gray-400">PERCENTILE</p>
-         </article>
-         <article className="bg-white flex md:flex-col items-center md:items-start justify-between md:justify-normal gap-2 rounded-md shadow-md p-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
-           <article className="flex items-center space-x-2">
-             <span className="rounded-full border p-1 font-bold">&#9989;</span>
-             <span className="md:text-3xl text-xl font-bold">{`${currentScore}/15`}</span>
-           </article>
-           <p className="text-gray-500 dark:text-gray-400">CORRECT ANSWERS</p>
-         </article>
-       </article>
-
-       <article className="bg-white rounded-md shadow-md p-4 mb-4 dark:bg-gray-800 dark:border dark:border-gray-700">
-         <article className="flex justify-between items-center mb-2">
-            <h2 className="text-lg font-semibold dark:text-white">Comparison Graph</h2>
-            <span className="rounded-full border p-1 font-bold">
-              <MdOutlineAutoGraph className="text-xl md:text-2xl text-gray-600 dark:text-gray-400" />
-            </span>
-         </article>
-         <p className="text-sm text-gray-600 mb-2 dark:text-gray-400">
-           {`You scored ${percentile} percentile which is lower than the average percentile. ${averagePercentile} of all the engineers who
-           took this assessment.`}
-         </p>
-         <article className="h-48">
-           <Line data={lineChartData} />
-         </article>
-       </article>
-
-       <article className="grid grid-cols-1 md:grid-cols-2 gap-4">
-         <article className="bg-white rounded-md shadow-md p-4 dark:bg-gray-800 dark:border dark:border-gray-700">
-           <h2 className="text-lg font-semibold mb-2 dark:text-white">Syllabus Wise Analysis</h2>
-           {syllabusData.map((item) => (
-             <article key={item.label} className="mb-2">
-               <article className="flex justify-between items-center">
-                 <span className="text-sm text-gray-700 dark:text-gray-400">{item.label}</span>
-                 <span className="text-sm">{item.value}%</span>
-               </article>
-               <article className="bg-gray-200 rounded-full h-2 dark:bg-gray-700">
-                 <article
-                   className="bg-blue-500 rounded-full h-2"
-                   style={{ width: `${item.value}%` }}
-                 ></article>
-               </article>
-             </article>
-           ))}
-         </article>
-
-         <article className="bg-white rounded-md shadow-md p-4 dark:bg-gray-800 dark:border dark:border-gray-700">
-           <h2 className="text-lg font-semibold mb-2 dark:text-white">Question Analysis</h2>
-           <p className="text-sm text-gray-700 dark:text-gray-400">
-             {`You scored ${currentScore} questions correctly out of 15. It can be better`}
-           </p>
-           <article className="relative h-48 flex justify-center items-center">
-             <Doughnut data={doughnutChartData} />
-             <span className="absolute text-xl font-bold text-gray-800 dark:text-white">10/15</span>
-           </article>
-         </article>
-       </article>
-       {showUpdateForm && (
-        <section className="fixed z-10 inset-0 overflow-y-auto">
-          <article className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
-              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
-            </div>
-
-            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
-              &#8203;
-            </span>
-
-            <article className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <article className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <h3 className="text-lg leading-6 font-medium text-gray-900">Update Scores</h3>
-                <article className="mt-2">
-                  <UpdateScore
-                    initialValues={{ rank, percentile, currentScore }}
-                    onSubmit={handleSubmit}
-                    onCancel={closeUpdateForm}
-                  />
+       <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <article className="bg-white rounded-md shadow-md p-4 dark:bg-gray-800 dark:border dark:border-gray-700">
+            <article className="bg-white justify-between flex rounded-md shadow-md p-4 mb-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
+              <article className="flex items-center space-x-4 mb-2">
+                <Image src={html} alt="HTML Icon" width={10} height={10} className="w-10 h-10" />
+                <article className='flex flex-col gap-2'>
+                  <h2 className="text-lg font-semibold">Hyper Text Markup Language</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Questions: 08 | Duration: 15 mins | Submitted on 4 February, 2025
+                  </p>
                 </article>
+              </article>
+              <button type="button" onClick={openUpdateForm} className="ml-auto bg-blue-500 hover:bg-blue-700 max-h-fit text-white font-bold py-2 px-4 rounded dark:bg-blue-600 dark:hover:bg-blue-700">
+                Update
+              </button>
+            </article>
+
+            <article className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <article className="bg-white flex md:flex-col items-center md:items-start justify-between md:justify-normal gap-2 rounded-md shadow-md p-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
+                <article className="flex items-center space-x-2">
+                    <span className="rounded-full border p-1 font-bold">
+                      <FaTrophy className="text-xl p-1 md:text-2xl text-yellow-500" />
+                    </span>
+                    <span className="md:text-[2vw] font-bold">{rank}</span>
+                </article>
+                <p className="text-gray-500 dark:text-gray-400">YOUR RANK</p>
+              </article>
+              <article className="bg-white flex md:flex-col items-center md:items-start justify-between md:justify-normal gap-2 rounded-md shadow-md p-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
+                <article className="flex items-center space-x-2">
+                    <span className="rounded-full border p-1 font-bold">
+                      <TbReportAnalytics className="text-xl p-1 md:text-2xl text-blue-500" />
+                    </span>
+                    <span className="md:text-[2vw] font-bold">{percentile}</span>
+                </article>
+                <p className="text-gray-500 dark:text-gray-400">PERCENTILE</p>
+              </article>
+              <article className="bg-white flex md:flex-col items-center md:items-start justify-between md:justify-normal gap-2 rounded-md shadow-md p-4 dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700">
+                <article className="flex items-center space-x-2">
+                  <span className="rounded-full border p-1 font-bold">&#9989;</span>
+                  <span className="md:text-[2vw] font-bold">{`${currentScore}/15`}</span>
+                </article>
+                <p className="text-gray-500 dark:text-gray-400">CORRECT ANSWERS</p>
+              </article>
+            </article>
+
+            <article className="bg-white rounded-md shadow-md p-4 mb-4 dark:bg-gray-800 dark:border dark:border-gray-700">
+              <article className="flex justify-between items-center mb-2">
+                  <h2 className="text-lg font-semibold dark:text-white">Comparison Graph</h2>
+                  <span className="rounded-full border p-1 font-bold">
+                    <MdOutlineAutoGraph className="text-xl md:text-2xl text-gray-600 dark:text-gray-400" />
+                  </span>
+              </article>
+              <p className="text-sm text-gray-600 mb-2 dark:text-gray-400">
+                {`You scored ${percentile} percentile which is lower than the average percentile. ${averagePercentile} of all the engineers who
+                took this assessment.`}
+              </p>
+              <article className="h-48">
+                <Line data={lineChartData} />
               </article>
             </article>
           </article>
+
+          <article className="grid grid-cols-1 gap-4">
+            <article className="bg-white rounded-md shadow-md p-4 dark:bg-gray-800 dark:border dark:border-gray-700">
+              <h2 className="text-lg font-semibold mb-2 dark:text-white">Syllabus Wise Analysis</h2>
+              {syllabusData.map((item) => (
+                  <article key={item.label} className="mb-2">
+                    <article className="flex justify-between items-center">
+                      <span className="text-sm text-gray-700 dark:text-gray-400">{item.label}</span>
+                      <span className="text-sm">{item.value}%</span>
+                    </article>
+                    <article className={`h-2 bg-gray-200 ${item.overlay} rounded-full dark:bg-gray-700`}>
+                      <article
+                        className={`h-2 rounded-full ${item.bg} dark:bg-gray-500`}	
+                        style={{ width: `${item.value}%` }}
+                      ></article>
+                    </article>
+                  </article>
+              ))}
+            </article>
+
+            <article className="bg-white rounded-md shadow-md p-4 dark:bg-gray-800 dark:border dark:border-gray-700">
+              <article className="flex justify-between items-center mb-2">
+                <h2 className="text-lg font-semibold dark:text-white">Question Analysis</h2>
+                <p className="text-xl font-bold text-gray-800 dark:text-white">{`${currentScore}/15`}</p>
+              </article>
+              <p className="text-sm text-gray-700 dark:text-gray-400">
+                {`You scored ${currentScore} questions correctly out of 15. It can be better`}
+              </p>
+              <article className="relative h-48 flex justify-center items-center">
+                <Doughnut data={doughnutChartData} />
+              </article>
+            </article>
+          </article>
+          {showUpdateForm && (
+            <section className="fixed z-10 inset-0 overflow-y-auto">
+              <article className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+                  <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+
+                <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+                  &#8203;
+                </span>
+
+                <article className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                  <article className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 className="text-lg leading-6 font-medium text-gray-900">Update Scores</h3>
+                    <article className="mt-2">
+                      <UpdateScore
+                        initialValues={{ rank, percentile, currentScore }}
+                        onSubmit={handleSubmit}
+                        onCancel={closeUpdateForm}
+                      />
+                    </article>
+                  </article>
+                </article>
+              </article>
+            </section>
+          )}
         </section>
-      )}
      </section>
   );
 };
