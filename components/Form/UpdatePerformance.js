@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import html from '../../public/html_icon.svg'
+import Image from 'next/image';
 
-// Validation schema using Yup
 const validationSchema = Yup.object().shape({
   rank: Yup.number().required('Rank is required').positive('Rank must be a positive number'),
   percentile: Yup.number()
@@ -28,6 +28,14 @@ const UpdateScore = ({ initialValues, onSubmit, onCancel }) => {
     >
       {({ isSubmitting }) => (
         <Form>
+          <article className=''>
+            <h2 className=''>Update Scores</h2>
+            <Image
+              src={html}
+              alt='HTML Icon'
+              className='w-10 h-10'
+            />
+          </article>
           <div className="mb-4">
             <label htmlFor="rank" className="block text-gray-700 text-sm font-bold mb-2">
               <span className="">1</span> Update your Rank
