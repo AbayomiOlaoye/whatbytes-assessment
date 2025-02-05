@@ -1,7 +1,7 @@
-export default function Home() {
+export default function Page() {
   return (
-    <section className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1 className="text-4xl font-bold text-center">Hello,Whatbytes</h1>
+    <section className="min-h-screen bg-gray-50 flex flex-col md:flex-row dark:bg-gray-900 dark:text-white">
+      <h1 className="text-2xl font-semibold mb-4 dark:text-gray-100">Skill Test</h1>
     </section>
   );
 }
