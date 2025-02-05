@@ -18,7 +18,7 @@
 
 # 📖 [Skills Dashboard] <a name="about-project"></a>
 
-**[Skills Dashboard]** is a web application to visualize and track skill test performance. It provides a user-friendly interface for viewing and managing skill test results. It includes interactive charts, detailed analytics, and a dynamic theme for a customized experience.
+**Skills Dashboard** is a web application to visualize and track skill test performance. It provides a user-friendly interface for viewing and managing skill test results. It includes interactive charts, detailed analytics, and a dynamic theme for a customized experience.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -53,6 +53,10 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://whatbytes-assessment-theta.vercel.app/)
+- [Figma Design - by me](https://www.figma.com/design/JVPa3F96GlwVJPjRqFhJdj/Whatbytes?node-id=0-1&t=oeX0UL1AonST6r0K-1)
+
+![image](https://github.com/user-attachments/assets/e98f8ee4-61a1-42cb-90ee-eba3d94120f3)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
