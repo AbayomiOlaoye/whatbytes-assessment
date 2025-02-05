@@ -37,7 +37,7 @@ const Aside = () => {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden max-h-fit m-4 my-3 p-2 z-50 bg-gray-100 dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="md:hidden max-h-fit m-4 my-3 p-2 absolute z-50 bg-gray-100 dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-label="Open navigation menu"
       >
         <svg
